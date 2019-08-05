@@ -1,4 +1,3 @@
-# ROS Basics
+# Simulating the robot behavior in a virtual environment with Gazebo
 
-This repo is the introductory part of the book "Hands-on ROS for Robotics Programming"
-that gives the code for "Chapter 5: Simulating the robot behavior in a virtual environment with Gazebo"
+The files in this folder provide the code samples for "Chapter 5: Simulating the robot behavior in a virtual environment with Gazebo" of the book "Hands-on ROS for Robotics Programming"
