@@ -1,0 +1,4 @@
+<launch>
+  <node name="distance_sensor" pkg="mygopigo" type="distance-sensor.py" output="screen" />
+  <node name="distance_subscriber" pkg="mygopigo" type="distance-sensor_subscriber.py" output="screen" />
+</launch>
