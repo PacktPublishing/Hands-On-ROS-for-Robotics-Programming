@@ -8,7 +8,7 @@ Source: [gopigo3_node](https://github.com/ros-gopigo/gopigo3_node)
 Folder `bagFiles` includes recorded sessions of distance sensor and Pi camera
 
 # Pi Camera python
-Folder `
+Folder `piCamera`
 
 Sample python files to use the Pi Camera.
 Source: [Recipes](https://picamera.readthedocs.io/en/release-1.13/recipes1.html)
