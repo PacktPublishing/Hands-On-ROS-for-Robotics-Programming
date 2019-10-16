@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find gopigo3_navigation)/launch/navigation.launch" />
+  <include file="$(find gopigo3_navigation)/launch/gopigo3.launch" />
+</launch>

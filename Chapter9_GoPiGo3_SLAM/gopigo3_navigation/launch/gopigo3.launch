@@ -1,0 +1,30 @@
+
+<launch>
+  <machine name="gopigo3" address="192.168.1.51"  env-loader="/home/pi/catkin_ws/devel/env.sh" user="pi" password="raspberry"/>
+ 
+  <node machine="gopigo3" name="gopigo3_node" pkg="gopigo3_node" type="gopigo3_driver.py" output="screen" >
+    <remap from="motor/encoder/left" to="float64/left" />
+    <remap from="motor/encoder/right" to="float64/right" />
+    <remap from="/odometry" to="odom" />
+  </node>
+
+  <!-- node machine="gopigo3" name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" >
+    <param name="port"         type="string" value="/dev/ydlidar"/>  
+    <param name="baudrate"     type="int"    value="115200"/>
+    <param name="frame_id"     type="string" value="lidar"/>
+    <param name="angle_fixed"  type="bool"   value="true"/>
+    <param name="low_exposure"  type="bool"   value="false"/>
+    <param name="heartbeat"    type="bool"   value="false"/>
+    <param name="resolution_fixed"    type="bool"   value="true"/>
+    <param name="angle_min"    type="double" value="-180" />
+    <param name="angle_max"    type="double" value="180" />
+    <param name="range_min"    type="double" value="0.08" />
+    <param name="range_max"    type="double" value="16.0" />
+    <param name="ignore_array" type="string" value="" />
+    <param name="samp_rate"    type="int"    value="9"/>
+    <param name="frequency"    type="double" value="7"/>
+  </node -->
+
+</launch>
+
+

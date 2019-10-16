@@ -1,0 +1,16 @@
+<launch>
+  <!-- In the robot => include file="$(find ydlidar)/launch/lidar.launch" / -->
+
+  <!-- set these parameters on Parameter Server -->
+   <param name="robot_description" textfile="$(find ydlidar)/urdf/ydlidar.urdf" />
+  
+  <!-- send fake joint values 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>-->
+  
+  <!-- Combine joint values 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/> -->
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ydlidar)/ydlidar.rviz" />
+</launch>
