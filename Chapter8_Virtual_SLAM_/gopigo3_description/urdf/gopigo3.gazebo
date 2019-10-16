@@ -236,8 +236,6 @@
   <joint name="scan_solid_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_scan_solid"/>
-    <!-- origin xyz="-0.1 0 0.15" rpy="0 0 0"/ -->
-    <!-- origin xyz="-0.1 0 0.25" rpy="0 0 0"/ -->
     <origin xyz="-0.1 0 0.33" rpy="0 0 0"/>
   </joint>
 
@@ -245,8 +243,6 @@
     <visual name="sensor_body">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <!-- mesh filename="package://gopigo3_description/meshes/hokuyo.dae" scale="2 2 2"/ -->
-        <!-- mesh filename="package://gopigo3_description/meshes/TB3_lds-01.stl" scale="0.003 0.003 0.003"/ -->
         <mesh filename="package://gopigo3_description/meshes/X4.stl" scale="0.003 0.003 0.003"/> 
       </geometry>
       <material name="yellow"/>
