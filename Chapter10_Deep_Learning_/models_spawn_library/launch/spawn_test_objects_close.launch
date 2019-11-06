@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  
+  <include file="$(find models_spawn_library)/launch/spawn_banana.launch">
+    <arg name="x" value="0.0" />
+    <arg name="y" value="0.3" />
+    <arg name="z" value="0.4" />
+  </include>
+  
+  <include file="$(find models_spawn_library)/launch/spawn_tennisball.launch">
+    <arg name="x" value="0.3" />
+    <arg name="y" value="0.3" />
+    <arg name="z" value="0.4" />
+  </include>
+  
+  <include file="$(find models_spawn_library)/launch/spawn_watermelon.launch">
+    <arg name="x" value="0.3" />
+    <arg name="y" value="-0.3" />
+    <arg name="z" value="0.4" />
+  </include>
+  
+  <include file="$(find models_spawn_library)/launch/spawn_coke_can.launch">
+    <arg name="x" value="-0.3" />
+    <arg name="y" value="-0.3" />
+    <arg name="z" value="0.4" />
+  </include>
+  
+   <include file="$(find models_spawn_library)/launch/spawn_cup.launch">
+    <arg name="x" value="-0.3" />
+    <arg name="y" value="0.3" />
+    <arg name="z" value="0.4" />
+  </include>
+
+</launch>

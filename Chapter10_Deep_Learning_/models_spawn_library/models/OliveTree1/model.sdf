@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="OliveTree1">
+      <static>true</static>
+      <link name="OliveTree1_link">
+	  <collision name="OliveTree1_collision">
+	      <geometry>
+		  <mesh>
+		    <uri>model://OliveTree1/meshes/OliveTree1.dae</uri>
+		    <scale>1 1 1</scale>
+		  </mesh>
+	      </geometry>
+	  </collision>
+	  <visual name="OliveTree1_visual">
+	      <geometry>
+		<mesh>
+		  <uri>model://OliveTree1/meshes/OliveTree1.dae</uri>
+		  <scale>1 1 1</scale>
+		</mesh>
+	      </geometry>
+	      <cast_shadows>false</cast_shadows>
+	  </visual>
+      </link>
+    </model>
+</sdf>

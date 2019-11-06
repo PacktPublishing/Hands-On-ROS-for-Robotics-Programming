@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <arg name="rgb_image_topic" default="/gopigo/camera1/image_raw" />
+
+    <node
+    name="rostensorflow_image_recognition_node"
+    pkg="tf_gopigo"
+    type="image_recognition.py"
+    args=""
+    output="screen">
+
+    <remap from="image" to="$(arg rgb_image_topic)" />
+
+    </node>
+
+</launch>

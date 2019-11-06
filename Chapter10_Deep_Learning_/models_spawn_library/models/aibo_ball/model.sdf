@@ -1,0 +1,31 @@
+<sdf version="1.4">
+  <model name="aibo_ball">
+
+    <link name="base_link">
+      <self_collide>1</self_collide>
+      <pose>0 0 0 0 0.0 0</pose>
+      <collision name="base_link_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="base_link_visual">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://aibo_ball/materials/gazebo.material</uri>
+            <name>Gazebo/Pink</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+
+  </model>
+</sdf>

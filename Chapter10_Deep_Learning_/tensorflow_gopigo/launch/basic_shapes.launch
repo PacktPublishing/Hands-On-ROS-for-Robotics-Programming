@@ -1,0 +1,23 @@
+  <include file="$(find simple_objects_resize)/launch/simple_urdf_spawn.launch">
+    <arg name="robot_name" value="simple_box" />
+    <arg name="urdf_robot_file" value="$(find simple_objects_resize)/urdf/simple_box.urdf" />
+    <arg name="x" value="2.0" />
+    <arg name="y" value="0.0" />
+    <arg name="z" value="0.5" />
+  </include>
+
+  <include file="$(find simple_objects_resize)/launch/simple_urdf_spawn.launch">
+    <arg name="robot_name" value="simple_cylinder" />
+    <arg name="urdf_robot_file" value="$(find simple_objects_resize)/urdf/simple_cylinder.urdf" />
+    <arg name="x" value="0.0" />
+    <arg name="y" value="2.0" />
+    <arg name="z" value="0.5" />
+  </include>
+
+  <include file="$(find simple_objects_resize)/launch/simple_urdf_spawn.launch">
+    <arg name="robot_name" value="simple_sphere" />
+    <arg name="urdf_robot_file" value="$(find simple_objects_resize)/urdf/simple_sphere.urdf" />
+    <arg name="x" value="0.0" />
+    <arg name="y" value="-2.0" />
+    <arg name="z" value="0.5" />
+  </include>

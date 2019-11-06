@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    
+    <!-- This is the original content >
+    <arg name="sdf_robot_file" value="$(find models_spawn_library)/models/tennis_ball/model.sdf"/>
+    <arg name="robot_name" value="tennis_ball1" />
+    <arg name="x" default="0.5" />
+    <arg name="y" default="0.0" />
+    <arg name="z" default="0.2" />
+    <arg name="yaw" default="0.0" />
+    
+    
+    <include file="$(find spawn_robot_tools_pkg)/launch/spawn_sdf.launch">
+        <arg name="sdf_robot_file" value="$(arg sdf_robot_file)"/>
+        <arg name="robot_name" default="$(arg robot_name)" />
+        <arg name="x" value="$(arg x)" />
+        <arg name="y" value="$(arg y)" />
+        <arg name="z" value="$(arg z)" />
+        <arg name="yaw" value="$(arg yaw)" />
+    </include -->
+
+    <!-- This is the content of 'spawn_sdf.launch' with default values of 'spawn_tennisball.original.launch' -->
+        <arg name="robot_name" default="tennis_ball1" />
+        <arg name="x" default="5" />
+        <arg name="y" default="5" />
+        <arg name="z" default="1.2" />
+        <arg name="roll" default="0"/>
+        <arg name="pitch" default="0"/>
+        <arg name="yaw" default="0.0" />
+        <arg name="sdf_robot_file" default="$(find models_spawn_library)/models/tennis_ball/model.gazebo" />
+        
+
+        <node name="$(arg robot_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-file $(arg sdf_robot_file) -urdf -x $(arg x) -y $(arg y) -z $(arg z)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg robot_name)"/>
+
+    <!-- END of the content of 'spawn_sdf.launch' -->
+
+    <!-- This is the spawn node definition in tennis_ball_in_2cones_world.launch and it works -->
+    <!-- node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+     args="-file $(find models_spawn_library)/models/tennis_ball/model.gazebo -urdf -model tennis_ball" / -->
+    
+</launch>
