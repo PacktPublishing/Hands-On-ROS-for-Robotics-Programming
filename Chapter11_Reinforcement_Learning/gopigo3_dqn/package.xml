@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gopigo3_dqn</name>
+  <version>1.0.0</version>
+  <description>
+    The gopigo3_dqn package includes applications using reinforcement learning with DQN (Deep Q-Learning).
+  </description>
+  <license>Apache 2.0</license>
+  <author email="kkjong@robotis.com">Gilbert</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+</package>
+
+<!-- ### Notice of modifications in the code to comply with Apache License, Version 2.0
+## Change target robot from Turtlebot3 to GoPiGo3
+## Author: brjapon@therobotacademy.com -->

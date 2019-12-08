@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>gopigo3_model</name>
+  <version>0.0.1</version>
+  <description>description package of the Rover robot</description>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <maintainer email="user@todo.com">todo</maintainer>
+  <license>-</license>
+  
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
