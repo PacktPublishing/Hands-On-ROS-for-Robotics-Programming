@@ -19,6 +19,7 @@
 
   <param name="robot_description" textfile="$(find gopigo3_description)/urdf/gopigo3.gazebo" />
   
+  
   <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
    args="-file $(find gopigo3_description)/urdf/gopigo3.gazebo -urdf -model gopigo3 -x 6 -y 6 -Y 2.3" />
 
