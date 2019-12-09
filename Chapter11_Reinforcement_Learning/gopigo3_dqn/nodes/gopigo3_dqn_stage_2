@@ -46,13 +46,9 @@ class ReinforceAgent():
         self.dirPath = self.dirPath.replace('gopigo3_dqn/nodes', 'gopigo3_dqn/save_model/stage_2_')
         self.result = Float32MultiArray()
 
-#       Assuming there is no previous model
-        self.load_model = True
-        self.load_episode = 100
-
         # Load model from last EPISODE
-#        self.load_model = True
-#        self.load_episode = 350
+        self.load_model = False
+        self.load_episode = 120 # If False it assumes there is no previous model
         # ----------------------------
 
         self.state_size = state_size
