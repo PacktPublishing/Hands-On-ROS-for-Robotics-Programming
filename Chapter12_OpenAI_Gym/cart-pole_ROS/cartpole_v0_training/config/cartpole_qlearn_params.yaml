@@ -1,0 +1,31 @@
+cartpole_v0: #namespace
+
+    n_actions: 4
+    control_type: "velocity"
+
+    #environment variables
+    min_pole_angle: -0.7 #-23°
+    max_pole_angle: 0.7 #23°
+    
+    max_base_velocity: 50
+    max_base_pose_x: 2.0
+    min_base_pose_x: -2.0
+    
+    # those parameters are very important. They are affecting the learning experience
+    # They indicate how fast the control can be
+    # If the running step is too large, then there will be a long time between 2 ctrl commans
+    # If the pos_step is too large, then the changes in position will be very abrupt
+    running_step: 0.04 # amount of time the control will be executed
+    pos_step: 0.016     # increment in position for each command
+    
+    #qlearn parameters
+    alpha: 0.1
+    gamma: 0.7
+    epsilon: 0.9
+    epsilon_discount: 0.999
+    nepisodes: 500
+    nsteps: 1000
+    number_splits: 10 #set to change the number of state splits for the continuous problem and also the number of env_variable splits
+
+    init_pos: 0.0 # Position in which the base will start
+    wait_time: 0.1 # Time to wait in the reset phases

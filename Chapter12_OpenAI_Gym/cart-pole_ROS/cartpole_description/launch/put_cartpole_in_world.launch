@@ -1,0 +1,26 @@
+<launch>
+    <!-- load controller configuration to the ros parameter server -->
+    <rosparam file="$(find cartpole_description)/config/cartpole_v0_velocity.yaml" command="load"/>
+
+    <!-- spawn the Cartpole_v0 construct -->
+    <include file="$(find cartpole_description)/launch/spawn_cartpole_v0.launch"/>
+
+  <node name="robot_state_publisher_cartpole_v0" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <param name="publish_frequency" type="double" value="5000.0" />
+            <param name="ignore_timestamp" type="bool" value="true" />
+            <param name="tf_prefix" type="string" value="cartpole_v0" />
+            <remap from="/joint_states" to="/cartpole_v0/joint_states" />
+        </node>
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--namespace=/cartpole_v0
+                              joint_state_controller
+                              pole_joint_velocity_controller
+                              foot_joint_velocity_controller">
+
+
+  </node>
+
+</launch>

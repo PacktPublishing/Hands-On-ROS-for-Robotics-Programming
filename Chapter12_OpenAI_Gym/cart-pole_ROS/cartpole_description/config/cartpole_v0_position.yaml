@@ -1,0 +1,17 @@
+cartpole_v0:
+  # Publish all joint states -----------------------------------
+  # Creates the /joint_states topic necessary in ROS
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 5000
+
+  # Effort Controllers ---------------------------------------
+  pole_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: cartpole_joint
+    pid: {p: 1, i: 0.01, d: 0.01}
+    
+  foot_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: foot_joint
+    pid: {p: 10000.0, i: 0.0, d: 1000.0}

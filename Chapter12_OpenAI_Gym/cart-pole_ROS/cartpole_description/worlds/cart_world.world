@@ -1,0 +1,24 @@
+<sdf version="1.4">
+<world name="default">
+    <include>
+        <uri>model://sun</uri>
+    </include>
+
+    <gravity>0 0 -9.8</gravity>
+
+
+    <physics name="custom_physics_profile" type="ode" default="true">
+      <!--<real_time_update_rate>0.0</real_time_update_rate>-->
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>500</iters>
+        </solver>
+      </ode>
+    </physics>
+
+    <include>
+        <uri>model://ground_plane</uri>
+    </include>
+</world>
+</sdf>

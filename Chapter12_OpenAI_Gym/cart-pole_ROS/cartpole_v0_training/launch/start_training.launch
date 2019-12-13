@@ -1,0 +1,5 @@
+<launch>
+    <rosparam command="load" file="$(find cartpole_v0_training)/config/cartpole_qlearn_params.yaml" />
+    <!-- Launch the training system -->
+    <node pkg="cartpole_v0_training" name="cartpole_gym" type="start_training.py" output="screen"/>
+</launch>
