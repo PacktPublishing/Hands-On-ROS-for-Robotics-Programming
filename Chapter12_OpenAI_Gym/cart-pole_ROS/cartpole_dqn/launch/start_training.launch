@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <rosparam command="load" file="$(find cartpole_dqn)/config/cartpole_dqn_params.yaml" />
+    <!-- Launch the training system -->
+    <node pkg="cartpole_dqn" name="cartpole_dqn" type="cartpole_dqn.py" output="screen"/>
+    <!-- Launch live plots of REWARDS and TICKS -->
+    <node pkg="cartpole_dqn" name="ticks_graph" type="stream_plot_ticks.py" output="screen"/>
+    <node pkg="cartpole_dqn" name="rewards_graph" type="stream_plot_reward.py" output="screen"/>
+</launch>

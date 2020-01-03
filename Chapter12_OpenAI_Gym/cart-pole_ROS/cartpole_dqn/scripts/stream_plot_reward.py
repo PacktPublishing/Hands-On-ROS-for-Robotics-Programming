@@ -7,11 +7,11 @@ import rospy
 from std_msgs.msg import Int16MultiArray, Int32
 
 # Initialize the ROS node
-rospy.init_node('training_graph')
+rospy.init_node('rewards_graph')
 
 
 def callback_reward(msg):
-    rospy.logwarn(' EPISODE ' + str(msg.data[0]) + ' Reward= ' + str(msg.data[1]))
+    #rospy.logwarn(' EPISODE ' + str(msg.data[0]) + ' Reward= ' + str(msg.data[1]))
     xs.append(msg.data[0])
     ys.append(msg.data[1])
 sub = rospy.Subscriber('reward', Int16MultiArray, callback_reward)
@@ -26,7 +26,7 @@ ys = []
 def animate(i, xs, ys):
 
     # Generate a random temperature
-    temp_c = round(random.randint(1,101), 2)
+    #temp_c = round(random.randint(1,101), 2)
 
     # Add x and y to lists
     #xs.append(i)
@@ -43,8 +43,8 @@ def animate(i, xs, ys):
     # Format plot
     plt.xticks(rotation=45, ha='right')
     plt.subplots_adjust(bottom=0.30)
-    plt.title('Cart-Pole training with Q-learn')
-    plt.ylabel('Total reward')
+    plt.title('MEAN TICKS (average over last 100 episodes)')
+    plt.ylabel('Score')
     plt.xlabel('Episode number')
 # Set up plot to call animate() function periodically
 ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=1000)

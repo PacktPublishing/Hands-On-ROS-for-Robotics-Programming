@@ -1,3 +1,0 @@
-<launch>
-    <include file="$(find cartpole_description)/launch/main.launch" />
-</launch>

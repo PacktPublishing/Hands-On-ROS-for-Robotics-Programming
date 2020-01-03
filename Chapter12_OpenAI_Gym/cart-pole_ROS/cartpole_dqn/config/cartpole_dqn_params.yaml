@@ -1,0 +1,36 @@
+cartpole_v0: #namespace
+
+    #qlearn parameters
+    state_size: 4 # number of elements in the state array from observations.
+    n_actions: 2 # Number of actions used by algorithm and task
+    alpha: 0.01 # Learning Rate
+    alpha_decay: 0.01
+    gamma: 1.0 # future rewards value 0 none 1 a lot
+    epsilon: 1.0 # exploration, 0 none 1 a lot
+    epsilon_decay: 0.995 # how we reduse the exploration
+    epsilon_min: 0.01 # minimum value that epsilon can have
+    batch_size: 64 # maximum size of the batches sampled from memory
+    episodes_training: 10000
+    n_win_ticks: 800 # If the mean of rewards is bigger than this and have passed min_episodes, the task is considered finished
+    min_episodes: 100
+    #max_env_steps: None
+    monitor: False
+    quiet: False
+    
+
+    #environment variables
+    control_type: "velocity"
+    min_pole_angle: -0.7 #-23°
+    max_pole_angle: 0.7 #23°
+    max_base_velocity: 50
+    max_base_pose_x: 1.0
+    min_base_pose_x: -1.0
+    
+    # those parameters are very important. They are affecting the learning experience
+    # They indicate how fast the control can be
+    # If the running step is too large, then there will be a long time between 2 ctrl commans
+    # If the pos_step is too large, then the changes in position will be very abrupt
+    running_step: 0.04 # amount of time the control will be executed
+    pos_step: 1.0     # increment in position/velocity/effort, depends on the control for each command
+    init_pos: 0.0 # Position in which the base will start
+    wait_time: 0.1 # Time to wait in the reset phases
