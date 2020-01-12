@@ -3,6 +3,9 @@
   <name>gopigo3_description</name>
   <version>0.0.1</version>
   <description>description package of the Rover robot</description>
+  <maintainer email="brjapon@therobotacademy.com">Bernardo R. Japon</maintainer>
+  <license>MIT</license>
+
   <buildtool_depend>catkin</buildtool_depend>
 
   <export>
