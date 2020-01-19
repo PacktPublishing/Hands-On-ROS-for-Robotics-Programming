@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="gopigo3_dqn" type="gopigo3_dqn_stage_1" name="gopigo3_dqn_stage_1" output="screen" />
+</launch>
+  
