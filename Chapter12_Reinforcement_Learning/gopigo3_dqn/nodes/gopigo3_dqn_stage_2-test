@@ -48,7 +48,7 @@ class ReinforceAgent():
 
         # Load model from last EPISODE
         self.load_model = True # Set to 'True' to test the trained model, using for the DQN network ...
-        self.load_episode = 1380 # ... the weights of episode 1380
+        self.load_episode = 1200 # ... the weights of episode 1380
         # ----------------------------
 
         self.state_size = state_size
