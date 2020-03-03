@@ -50,7 +50,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.8
+    - Alpha: 0.5
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -92,7 +92,7 @@ Visualization Manager:
           Value: true
         right_wheel:
           Value: true
-      Marker Scale: 0.699999988
+      Marker Scale: 0.3
       Name: TF
       Show Arrows: false
       Show Axes: true

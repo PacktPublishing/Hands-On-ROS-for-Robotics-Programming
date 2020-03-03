@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 <robot name="gopigo3">
 
+<!-- Materials -->
   <material name="blue">
     <color rgba="0 0 0.8 1"/>
   </material>
@@ -25,12 +26,12 @@
     <color rgba="1 0.54 0 1"/>
   </material>
 
-  <!-- Base Link -->
+<!-- Base Link -->
   <link name="base_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-          <box size="0.5 0.5 0.25"/>
+          <box size="0.25 0.25 0.125"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -39,45 +40,44 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-          <box size="0.5 0.5 0.25"/>
+          <box size="0.25 0.25 0.125"/>
       </geometry>
     </collision>
 
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0" />
-      <mass value="5"/>
+      <mass value="1.5"/>
       <inertia ixx="0.13" ixy="0.0" ixz="0.0" iyy="0.21" iyz="0.0" izz="0.13"/>
     </inertial>
 
     <!-- Caster attachment -->
     <visual name="caster_visual">
-      <origin xyz="-0.2 0 -0.125" rpy="0 0 0" />
+      <origin xyz="-0.1 0 -0.0625" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.05" />
+        <sphere radius="0.025" />
       </geometry>
     </visual>
 
     <collision name="caster_collision">
-      <origin xyz="-0.2 0 -0.125" rpy="0 0 0" />
+      <origin xyz="-0.1 0 -0.0625" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.05" />
+        <sphere radius="0.025" />
       </geometry>
     </collision>
 
     <inertial name="caster_inertia">
-      <origin xyz="-0.2 0 -0.125" rpy="0 0 0" />
-      <mass value="0.5"/>
+      <origin xyz="-0.1 0 -0.0625" rpy="0 0 0" />
+      <mass value="0.15"/>
       <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
     </inertial>
 
   </link>
- 
-  <!-- Right Wheel -->
+<!-- Right Wheel -->
   <link name="right_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="1.570795 0 0" />
       <geometry>
-          <cylinder length="0.1" radius="0.2" />
+          <cylinder length="0.05" radius="0.1" />
       </geometry>
       <material name="orange"/>
     </visual>
@@ -85,38 +85,35 @@
     <collision>
       <origin xyz="0 0 0" rpy="1.570795 0 0" />
       <geometry>
-          <cylinder length="0.1" radius="0.2" />
+          <cylinder length="0.05" radius="0.1" />
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="1.570795 0 0" />
-      <mass value="0.5"/>
+      <mass value="0.15"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
     </inertial>
-
   </link>
-
-  <!-- Right Wheel joint -->
+<!-- Right Wheel JOINT base_link -->
   <joint name="joint_right_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="0.2 -0.30 0.025" rpy="0 0 0" /> 
+    <origin xyz="0.1 -0.15 0.0125" rpy="0 0 0" /> 
     <axis xyz="0 1 0" />
   </joint>
-  <!-- Left Wheel joint -->
+<!-- Left Wheel JOINT base_link -->
   <joint name="joint_left_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0.2 0.30 0.025" rpy="0 0 0" /> 
+    <origin xyz="0.1 0.15 0.0125" rpy="0 0 0" /> 
     <axis xyz="0 1 0"/>
   </joint>
-
-  <!-- Left Wheel -->
+<!-- Left Wheel -->
   <link name="left_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="1.570795 0 0" />
       <geometry>
-          <cylinder length="0.1" radius="0.2" />
+          <cylinder length="0.05" radius="0.1" />
       </geometry>
       <material name="orange"/>
     </visual>
@@ -124,21 +121,20 @@
     <collision>
       <origin xyz="0 0 0" rpy="1.570795 0 0" />
       <geometry>
-          <cylinder length="0.1" radius="0.2" />
+          <cylinder length="0.05" radius="0.1" />
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="1.570795 0 0" />
-      <mass value="0.5"/>
+      <mass value="0.15"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
     </inertial>
 
   </link>
-
 <!-- Distance Sensor -->
   <joint name="distance_sensor_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin rpy="0 0 0" xyz="0.245 0 0.13" />
+    <origin rpy="0 0 0" xyz="0.1225 0 0.065" />
     <parent link="base_link"/>
     <child link="distance_sensor"/>
   </joint>
@@ -147,68 +143,67 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.01 0.01 0.01"/>
+        <box size="0.005 0.005 0.005"/>
       </geometry>
       <material name="red"/>
     </visual>
   </link>
-  
-  <!-- Distance Sensor solid-->
+
+<!-- Distance Sensor solid JOINT base_link -->
   <joint name="distance_sensor_solid_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="distance_sensor_solid"/>
   </joint>
-
+<!-- Distance Sensor solid-->
   <link name="distance_sensor_solid">
     <collision>
-      <origin xyz="0.2 0 0.155" rpy="1.570795 0 1.570795" />
+      <origin xyz="0.1 0 0.0775" rpy="1.570795 0 1.570795" />
       <geometry>
-        <box size="0.01 0.01 0.01"/>
+        <box size="0.005 0.005 0.005"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0.2 0 0.155" rpy="1.570795 0 1.570795" />
+      <origin xyz="0.1 0 0.0755" rpy="1.570795 0 1.570795" />
       <geometry>
-        <mesh filename="package://gopigo3_description/meshes/IR_Sensor_Sharp_GP2Y_solid.stl" scale="0.005 0.005 0.005"/>
+        <mesh filename="package://gopigo3_description/meshes/IR_Sensor_Sharp_GP2Y_solid.stl" scale="0.0025 0.0025 0.0025"/>
       </geometry>
       <material name="red"/>
     </visual>
 
     <inertial>
-      <origin xyz="0.2 0 0.155" rpy="1.570795 0 1.570795" />
+      <origin xyz="0.1 0 0.0755" rpy="1.570795 0 1.570795" />
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
-
-  <!-- 2D Camera as a mesh of actual PiCamera -->
+<!-- 2D Camera as a mesh of actual PiCamera -->
   <link name="camera">
     <visual>
-      <origin xyz="0.25 0 0.05" rpy="0 1.570795 0" />
+      <origin xyz="0.125 0 0.025" rpy="0 1.570795 0" />
       <geometry>
-        <mesh filename="package://gopigo3_description/meshes/piCamera.dae" scale="0.5 0.5 0.5"/>
+        <mesh filename="package://gopigo3_description/meshes/piCamera.stl" scale="0.0025 0.0025 0.0025"/>
       </geometry>
       <material name="yellow"/>
     </visual>
     
     <collision>
-      <origin xyz="0.275 0 0.05" rpy="0 -1.570795 0" />
+      <origin xyz="0.1375 0 0.025" rpy="0 -1.570795 0" />
       <geometry>
-        <box size="0.15 0.15 0.05"/>
+        <box size="0.075 0.075 0.025"/>
       </geometry>
     </collision>
 
     <inertial>
-      <origin xyz="0.275 0 0.05" rpy="0 -1.570795 0" />
+      <origin xyz="0.1375 0 0.025" rpy="0 -1.570795 0" />
       <mass value="1e-3" />
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
-
+<!-- 2D Camera JOINT base_link -->
   <joint name="joint_camera" type="fixed">
     <axis xyz="0 0 1" />
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -216,67 +211,58 @@
     <child link="camera"/>
   </joint>
 
-  <!-- Laser Distance Sensor LDS-01 from Turtlebot3 (YDLIDAR X4)-->
+<!-- Laser Distance Sensor -->
   <link name="base_scan">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.01 0.01 0.01"/>
+        <box size="0.005 0.005 0.005"/>
       </geometry>
       <material name="red"/>
     </visual> 
   </link>
-
+<!-- Laser Distance Sensor JOINT base_link -->
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_scan"/>
-    <origin xyz="-0.1 0 0.25" rpy="0 0 0"/>
+    <origin xyz="0.01 0.05 0.125" rpy="0 0 -1.6"/>
   </joint>
-
+<!-- base_scan_solid JOINT base_link -->
   <joint name="scan_solid_joint" type="fixed">
-    <parent link="base_link"/>
+    <parent link="base_scan"/>
     <child link="base_scan_solid"/>
-    <origin xyz="-0.1 0 0.33" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-
+<!-- base_scan_solid -->
   <link name="base_scan_solid">
     <visual name="sensor_body">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gopigo3_description/meshes/X4.stl" scale="0.003 0.003 0.003"/> 
+        <mesh filename="package://gopigo3_description/meshes/X4.stl" scale="0.0015 0.0015 0.0015"/> 
       </geometry>
       <material name="yellow"/>
     </visual>
 
     <collision>
-      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.0315" radius="0.055"/>
+        <cylinder length="0.01575" radius="0.0275"/>
       </geometry>
     </collision>
 
     <inertial>
-      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
-      <mass value="0.114" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.057" />
       <inertia ixx="0.001" ixy="0.0" ixz="0.0"
                iyy="0.001" iyz="0.0"
                izz="0.001" />
     </inertial>
-
-    <!-- Suppoort for LDS (only for TB3_lds-01.stl & cylinder shape) 
-    <visual name="support">
-      <origin xyz="0 0 -0.0625" rpy="0 0 0" />
-      <geometry>
-        <cylinder length="0.12" radius="0.1" />
-      </geometry>
-      <material name="red" />
-    </visual> -->
   </link>
 
-  <!-- GAZEBO MATERIAL TAGS (colors for sensors under <sensor> tags) -->
+<!-- GAZEBO MATERIAL TAGS (colors for sensors under <sensor> tags) -->
   <gazebo reference="base_link">
     <material>Gazebo/Blue</material>
-    <pose>0 0 3 0 0 0</pose>
+    <pose>0 0 1.5 0 0 0</pose>
   </gazebo>
 
   <gazebo reference="right_wheel">
@@ -287,8 +273,7 @@
     <material>Gazebo/White</material>
   </gazebo>
 
-  <!-- SENSOR AND ACTUATORS (only Gazebo, not part of URDF) -->
-  <!-- Differential Drive Controller -->
+<!-- Differential Drive Controller -->
   <!-- https://answers.ros.org/question/236122/diffdrive-odometry-source-is-missing -->
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
@@ -296,8 +281,8 @@
       <updateRate>20</updateRate>
       <leftJoint>joint_left_wheel</leftJoint>
       <rightJoint>joint_right_wheel</rightJoint>
-      <wheelSeparation>0.6</wheelSeparation>
-      <wheelDiameter>0.4</wheelDiameter>
+      <wheelSeparation>0.115</wheelSeparation>
+      <wheelDiameter>0.065</wheelDiameter>
       <torque>0.1</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
@@ -313,10 +298,9 @@
       <wheelTorque>5</wheelTorque>
     </plugin>
   </gazebo>
-
 <!-- Distance Sensor controller -->
-<gazebo reference="distance_sensor">        
-   <sensor type="ray" name="laser_distance">
+  <gazebo reference="distance_sensor">        
+    <sensor type="ray" name="laser_distance">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>10</update_rate>
@@ -354,7 +338,7 @@
    </gazebo>
 
 <!-- 2D Camera controller -->
-<gazebo reference="camera">
+  <gazebo reference="camera">
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
       <camera name="front">
@@ -386,7 +370,7 @@
     </sensor>
   </gazebo>
 
-  <!-- Laser Distance Sensor YDLIDAR X4 controller-->
+<!-- Laser Distance Sensor YDLIDAR X4 controller-->
   <gazebo reference="base_scan">
     <sensor type="ray" name="lds_lfcd_sensor">
       <pose>0 0 0 0 0 0</pose>
@@ -417,7 +401,8 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/gopigo/scan</topicName>
+        <!-- topicName>/gopigo/scan</topicName -->
+        <topicName>scan</topicName>
         <frameName>base_scan</frameName>
       </plugin>
     </sensor>

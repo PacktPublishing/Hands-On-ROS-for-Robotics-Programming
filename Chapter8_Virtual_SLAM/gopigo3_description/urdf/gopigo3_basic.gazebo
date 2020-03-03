@@ -190,7 +190,7 @@
     <visual>
       <origin xyz="0.25 0 0.05" rpy="0 1.570795 0" />
       <geometry>
-        <mesh filename="package://gopigo3_description/meshes/piCamera.dae" scale="0.5 0.5 0.5"/>
+        <mesh filename="package://gopigo3_description/meshes/piCamera.stl" scale="0.005 0.005 0.005"/>
       </geometry>
       <material name="yellow"/>
     </visual>
