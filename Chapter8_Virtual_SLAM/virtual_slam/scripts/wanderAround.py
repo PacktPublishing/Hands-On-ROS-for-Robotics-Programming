@@ -7,10 +7,12 @@ import tf
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan, Range
 
-FORWARD_SPEED = 3.8
-SPIRAL_SPEED = 2.5
-BACKWARD_SPEED = -0.8
-ROTATION_SPEED = 1.5
+speed_factor= 0.3 # Reduce wander speeds by this factor
+
+FORWARD_SPEED = 3.8 * speed_factor
+SPIRAL_SPEED = 2.5 * speed_factor
+BACKWARD_SPEED = -0.8 * speed_factor
+ROTATION_SPEED = 1.5 * speed_factor
 laser_BACKWARD_SPEED_multiplier = 1
 laser_ROTATION_SPEED_multiplier = 2
 
