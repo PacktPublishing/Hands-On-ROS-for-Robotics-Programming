@@ -1,23 +1,15 @@
 <launch>
-  <arg
-    name="model" />
-  <arg
-    name="gui"
-    default="False" />
-  <param
-    name="robot_description"
-    textfile="$(find ydlidar)/urdf/ydlidar.urdf" />
-  <param
-    name="use_gui"
-    value="$(arg gui)" />
-  <node
-    name="joint_state_publisher"
-    pkg="joint_state_publisher"
-    type="joint_state_publisher" />
-  <node
-    name="robot_state_publisher"
-    pkg="robot_state_publisher"
-    type="state_publisher" />
+  <arg name="model" />
+  <arg name="gui" default="False" />
+
+  <param name="robot_description" textfile="$(find ydlidar)/urdf/ydlidar.urdf" />
+
+  <param name="use_gui" value="$(arg gui)" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
  <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen">
     <param name="port"         type="string" value="/dev/ydlidar"/>  
     <param name="baudrate"     type="int"    value="115200"/>
@@ -34,9 +26,7 @@
     <param name="samp_rate"    type="int"    value="9"/>
     <param name="frequency"    type="double" value="7"/>
   </node>
-  <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find ydlidar)/ydlidar.rviz" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ydlidar)/ydlidar.rviz" />
+
 </launch>
