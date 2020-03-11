@@ -61,7 +61,7 @@ int main(int argc, char * argv[]) {
     ros::NodeHandle nh_private("~");
     nh_private.param<std::string>("port", port, "/dev/ydlidar"); 
     nh_private.param<int>("baudrate", baudrate, 115200); 
-    nh_private.param<std::string>("frame_id", frame_id, "laser_frame");
+    nh_private.param<std::string>("frame_id", frame_id, "base_scan");
     nh_private.param<bool>("resolution_fixed", resolution_fixed, "true");
     nh_private.param<bool>("intensity", intensities, "false");
     nh_private.param<bool>("low_exposure", low_exposure, "false");

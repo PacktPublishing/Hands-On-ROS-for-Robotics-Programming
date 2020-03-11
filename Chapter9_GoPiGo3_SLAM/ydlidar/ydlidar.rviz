@@ -65,7 +65,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        laser_frame:
+        base_scan:
           Alpha: 1
           Show Axes: true
           Show Trail: false

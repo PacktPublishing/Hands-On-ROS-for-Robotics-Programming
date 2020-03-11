@@ -80,7 +80,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: laser_frame
+    Fixed Frame: base_scan
     Frame Rate: 30
   Name: root
   Tools:

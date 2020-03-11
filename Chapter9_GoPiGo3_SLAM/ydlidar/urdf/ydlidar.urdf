@@ -41,7 +41,7 @@
     </collision>
   </link>
   <link
-    name="laser_frame">
+    name="base_scan">
     <inertial>
       <origin
         xyz="-0.00036659 0.00064155 -0.00027052"
@@ -89,7 +89,7 @@
     <parent
       link="base_laser" />
     <child
-      link="laser_frame" />
+      link="base_scan" />
     <axis
       xyz="0 0 0" />
   </joint>
