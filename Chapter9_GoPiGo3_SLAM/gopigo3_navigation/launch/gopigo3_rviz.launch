@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model" default="gopigo3_actual.gazebo" />
+
+  <!-- set these parameters on Parameter Server -->
+  <param name="robot_description" textfile="$(find gopigo3_navigation)/urdf/$(arg model)" />
+
+  <!-- send fake joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>
+
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find gopigo3_navigation)/rviz/gopigo3_model.rviz"/>
+
+</launch>

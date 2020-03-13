@@ -1,0 +1,17 @@
+<launch>
+  <arg name="model" default="gopigo3_actual.gazebo" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description" textfile="$(find gopigo3_navigation)/urdf/$(arg model)" />
+  
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"
+    args="-urdf -model gopigo3 -param robot_description" />
+
+</launch>

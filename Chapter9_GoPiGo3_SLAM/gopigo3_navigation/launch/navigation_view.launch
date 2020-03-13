@@ -1,7 +1,0 @@
-<launch>
-  <!-- Navigation -->
-  <include file="$(find gopigo3_navigation)/launch/navigation.launch" />
-
-  <!-- Rviz -->
-  <include file="$(find gopigo3_navigation)/launch/view.launch" />
-</launch>
