@@ -51,7 +51,7 @@ class ReinforceAgent():
 #        self.load_episode = 0
 
         # Load model from last EPISODE
-        self.load_model = True # If 'False', start from scratch. If 'True' start from episode number 'self.load_episode' (line below)
+        self.load_model = False # If 'False', start from scratch. If 'True' start from episode number 'self.load_episode' (line below)
         self.load_episode = 430
         # ----------------------------
 
@@ -171,7 +171,12 @@ if __name__ == '__main__':
     start_time = time.time()
 
     rospy.loginfo("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    rospy.loginfo("STARTING TRAINING MODEL FROM self.load_episode = %d", agent.load_episode)
+
+    if agent.load_model:
+        rospy.loginfo("START TRAINING MODEL FROM episode = %d", agent.load_episode)
+    else:
+        rospy.loginfo("START TRAINING MODEL FROM scratch") 
+    
     rospy.loginfo("=====================================================")
     
     # Run number of 'EPISODES = 3000'
