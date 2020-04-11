@@ -38,7 +38,7 @@ find_package(gazebo REQUIRED)
 # Declare catkin specific configuration to be passed to dependent projects
 ################################################################################
 catkin_package(
-  INCLUDE_DIRS include
+#  INCLUDE_DIRS include
   CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs nav_msgs tf gazebo_ros
   DEPENDS gazebo
 )
@@ -54,17 +54,9 @@ include_directories(
   ${GAZEBO_INCLUDE_DIRS}
 )
 
-add_executable(turtlebot3_drive src/turtlebot3_drive.cpp)
-add_dependencies(turtlebot3_drive ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(turtlebot3_drive ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
-
 ################################################################################
 # Install
 ################################################################################
-install(TARGETS turtlebot3_drive
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
