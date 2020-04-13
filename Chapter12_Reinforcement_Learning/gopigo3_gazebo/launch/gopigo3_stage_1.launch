@@ -12,7 +12,7 @@
     <arg name="debug" value="false"/>
   </include>  
 
-  <param name="robot_description" textfile="$(find gopigo3_description)/urdf/gopigo3.gazebo" />
+  <param name="robot_description" textfile="$(find gopigo3_model)/urdf/gopigo3.gazebo" />
   
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model gopigo3 -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
 

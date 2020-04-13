@@ -51,7 +51,7 @@ class ReinforceAgent():
 #        self.load_episode = 0
 
         # Load model from last EPISODE
-        self.load_model = False # If 'False', start from scratch
+        self.load_model = True # If 'False', start from scratch
         self.load_episode = 420 # If 'True' start from this episode number 'self.load_episode'
         # ----------------------------
 
@@ -181,6 +181,14 @@ if __name__ == '__main__':
     
     # Run number of 'EPISODES = 3000'
     # 'global_step' resets to 0 for every new EPISODE
+
+    # Determine the number of the starting episode
+    if agent.load_model == False:
+        load_episode = 0
+    else:
+        load_episode = agent.load_episode
+    
+    # Run every new episode
     for e in range(agent.load_episode + 1, EPISODES):
         done = False
         state = env.reset()

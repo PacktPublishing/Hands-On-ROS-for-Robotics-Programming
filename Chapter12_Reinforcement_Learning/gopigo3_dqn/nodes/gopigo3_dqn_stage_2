@@ -172,7 +172,14 @@ if __name__ == '__main__':
         rospy.loginfo("START TRAINING MODEL FROM scratch") 
     
     rospy.loginfo("=====================================================")
-    for e in range(agent.load_episode + 1, EPISODES):
+    # Determine the number of the starting episode
+    if agent.load_model == False:
+        load_episode = 0
+    else:
+        load_episode = agent.load_episode
+    
+    # Run every new episode
+    for e in range(load_episode + 1, EPISODES):
         done = False
         state = env.reset()
         score = 0
