@@ -47,8 +47,8 @@ class ReinforceAgent():
         self.result = Float32MultiArray()
 
         # Load model from last EPISODE
-        self.load_model = False
-        self.load_episode = 1020 # If 'False', start from scratch. If 'True' start from episode number 'self.load_episode' (line below)
+        self.load_model = False   # If 'False', start from scratch. 
+        self.load_episode = 1020 # If 'True' start from this episode number 'self.load_episode'
         # ----------------------------
 
         self.state_size = state_size
