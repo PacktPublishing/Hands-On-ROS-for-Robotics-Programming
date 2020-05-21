@@ -1,5 +1,4 @@
 <launch>
-  <arg name="model" />
   <arg name="gui" default="False" />
 
   <param name="robot_description" textfile="$(find ydlidar)/urdf/ydlidar.urdf" />

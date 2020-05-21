@@ -15,6 +15,7 @@
     <param name="samp_rate"    type="int"    value="9"/>
     <param name="frequency"    type="double" value="7"/>
   </node>
+  
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_base_scan"
     args="-0.03 0.01 0.15  -1.6 0.0 0.0   /base_link /base_scan 40" />
 </launch>

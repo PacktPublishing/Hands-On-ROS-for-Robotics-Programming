@@ -1,4 +1,14 @@
 <launch>
-  <!-- include file="$(find ydlidar)/launch/lidar.launch" /-->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ydlidar)/launch/lidar.rviz" />
+  <arg name="gui" default="False" />
+
+  <param name="robot_description" textfile="$(find ydlidar)/urdf/ydlidar.urdf" />
+  <param name="use_gui" value="$(arg gui)" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  
+  <node pkg="tf" type="static_transform_publisher" name="base_scan_to_base_laser"
+    args="0 0 0  0 0 0 /base_scan /base_laser 40" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ydlidar)/ydlidar_scan.rviz" />
 </launch>
