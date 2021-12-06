@@ -13,7 +13,7 @@
      <param name="/use_gui" value="$(arg gui)"/>
    </node>
    <!-- Combine joint values to TF-->
-   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rviz_basics)/rviz/$(arg model).rviz" required="true" />
    <!-- (required = "true") if rviz dies, entire roslaunch will be killed -->
